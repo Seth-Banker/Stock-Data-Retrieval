@@ -1,16 +1,47 @@
-# Stock data to Excel and SQL Database.
+# Stock Data Retrieval and Analysis
 
-## 1. What does this project do?
-This project fetches the last 20 days of a stocks trading data from Yahoo Finance, stores it in an SQLite database, and exports it to an Excel file for easy analysis.
+## Overview
+This Python project fetches historical stock data from Yahoo Finance, stores it in an SQLite database, and exports it to an Excel file for easy analysis. The database filename reflects the stock ticker entered by the user (e.g., `financial_data_AAPL.db`).
 
-Example of Excel output : 
+## Features
+- Fetches stock data for any ticker symbol from Yahoo Finance.
+- Stores data in a dynamically named SQLite database.
+- Exports data to an Excel file for further analysis.
+- Supports historical data retrieval for the last 30 days.
 
-![alt text](example.PNG)
+## Installation
+1. **Clone the repository**:
 
-## 2. How do I use it?
-Simply run the script and it will prompt you to enter your desired ticker. (e.g. Enter `AAPL` to retrieve Apple's stock data.)
+```
+git clone https://github.com/Seth-Banker/Stock-Data-Retrieval.git
+```
 
-It will then give you a SQL Database and Excel populated with 20 days of trading data on the stock of your choosing.
+2. **Install dependencies**:
 
-## 3. Where does the database and Excel file get saved?
-Both files are saved in the same directory as the script.
+```
+pip install yfinance pandas openpyxl
+```
+
+## Usage
+Run the script and enter a stock ticker when prompted:
+
+```
+python main.py
+```
+
+Example input:
+Enter a stock ticker symbol: ```AAPL```
+- The script creates `financial_data_AAPL.db` and `AAPL_financial_data.xlsx` in the same folder.
+
+## File Output
+- **SQLite Database**: `financial_data_<TICKER>.db`
+- **Excel File**: `<TICKER>_financial_data.xlsx`
+
+## Troubleshooting
+- If you get `ModuleNotFoundError`, install the required libraries:
+
+```
+pip install yfinance pandas openpyxl
+```
+
+- If Yahoo Finance returns an empty dataset, check if the ticker symbol is valid.
